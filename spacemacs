@@ -34,7 +34,7 @@ values."
             shell-default-position 'bottom
             shell-default-shell 'eshell)
      shell-scripts
-     ;; spell-checking
+     spell-checking
      ;; syntax-checking
      ;; version-control
      c-c++
@@ -115,7 +115,8 @@ values."
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
-   dotspacemacs-command-key ":"
+   ;; dotspacemacs-command-key ":"
+   dotspacemacs-command-key ";"
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -196,6 +197,10 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
+  ;; for spell-checking
+  ;; apt-get install aspell
+  (setq-default ispell-program-name "aspell"
+                ispell-dictionary "en_GB")
   )
 
 (defun dotspacemacs/user-config ()
