@@ -50,7 +50,7 @@ values."
      ;; (ranger :variables
      ;;          ranger-show-preview t)
      games
-     my-eshell
+     ;; my-eshell
      ;; my-c-c++
      ;; my-misc
      )
@@ -237,9 +237,10 @@ layers configuration. You are free to put any user code."
   ;; set evil's mode
   (add-to-load-path "~/spacemacs-private")
   (require 'init-cc-mode)
-  (require 'init-misc)
+  (require 'init-helm)
   (require 'init-tramp)
   (require 'init-sh)
+  (require 'init-misc)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
