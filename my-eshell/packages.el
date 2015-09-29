@@ -35,6 +35,9 @@
   "Initialize my eshell configure"
   (use-package eshell
     :defer t
+    :init
+    (progn
+      (add-hook 'eshell-mode-hook 'cscope-minor-mode))
     :config
     (progn
       (setq eshell-command-aliases-list

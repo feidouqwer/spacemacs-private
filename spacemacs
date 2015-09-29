@@ -40,12 +40,13 @@ values."
      c-c++
      cscope
      my-eshell
+     my-misc
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(hl-anything)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(eshell-prompt-extras)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -218,7 +219,9 @@ layers configuration. You are free to put any user code."
     "http://translate.google.cn/translate_tts")
   ;; disable highlight-current-line-globally
   (spacemacs/toggle-highlight-current-line-globally-off)
-)
+  ;; set tab-wdith to 4
+  (setq-default tab-width 4)
+  )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -227,6 +230,9 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("50ce37723ff2abc0b0b05741864ae9bd22c17cdb469cae134973ad46c7e48044" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "cdf8ed5e00ed16645e430dc05dab584675b6f534db04e5b8de98d435a35ddcdc" default)))
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
  '(magit-ediff-dwim-show-on-hunks t))
@@ -236,4 +242,5 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "yellow1" :foreground "red")))))
