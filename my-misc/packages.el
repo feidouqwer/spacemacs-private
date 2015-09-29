@@ -15,7 +15,6 @@
 (setq my-misc-packages
     '(
       ;; package names go here
-      xcscope
       ))
 
 ;; List of packages to exclude.
@@ -30,14 +29,3 @@
 ;; Often the body of an initialize function uses `use-package'
 ;; For more info on `use-package', see readme:
 ;; https://github.com/jwiegley/use-package
-
-(defun my-misc/init-xcscope ()
-  (use-package xcscope
-    :init
-    (progn
-      (add-hook 'c-mode-hook 'cscope-minor-mode)
-      (add-hook 'c++-mode-hook 'cscope-minor-mode))
-    :config
-    (evil-leader/set-key-for-mode 'c-mode "mgp" 'cscope-pop-mark))
-  )
-

@@ -23,7 +23,10 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-help-tooltip t)
      ;; better-defaults
      emacs-lisp
      git
@@ -35,11 +38,13 @@ values."
             shell-default-shell 'eshell)
      shell-scripts
      spell-checking
-     ;; syntax-checking
+     syntax-checking
      ;; version-control
      c-c++
      cscope
+     ycmd
      my-eshell
+     my-c-c++
      my-misc
      )
    ;; List of additional packages that will be installed without being
@@ -116,8 +121,8 @@ values."
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
-   ;; dotspacemacs-command-key ":"
-   dotspacemacs-command-key ";"
+   dotspacemacs-command-key ":"
+   ;; dotspacemacs-command-key ";"
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -201,8 +206,10 @@ user code."
   ;; for spell-checking
   ;; apt-get install aspell
   (setq-default ispell-program-name "aspell"
-                ispell-dictionary "en_GB")
-  )
+                ispell-dictionary "en_GB"
+                ycmd-server-command '("python" "/opt/ycmd/ycmd/")
+                ycmd-global-config "~/spacemacs-private/my-c-c++/ycmd_global_conf.py"
+  ))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
