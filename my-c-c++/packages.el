@@ -17,7 +17,7 @@
       ;; package names go here
       cc-mode
       xcscope
-      ;; ycmd
+      ycmd
       ))
 
 ;; List of packages to exclude.
@@ -70,4 +70,14 @@
     :config
     (progn
       (evil-leader/set-key-for-mode 'c-mode "mgp" 'cscope-pop-mark))
+    ))
+
+(defun my-c-c++/init-ycmd ()
+  (use-package ycmd
+    :config
+    (dolist (mode '(c-mode c++-mode))
+      (evil-leader/set-key-for-mode mode "myd" 'ycmd-goto-definition)
+      (evil-leader/set-key-for-mode mode "myD" 'ycmd-goto-declaration)
+      (evil-leader/set-key-for-mode mode "myi" 'ycmd-goto-implementation)
+      (evil-leader/set-key-for-mode mode "myI" 'ycmd-goto-imprecise))
     ))

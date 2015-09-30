@@ -10,9 +10,10 @@ default_flags = [
 '-Wno-variadic-macros',
 '-fexceptions',
 '-DNDEBUG',
-'-std=c++11',
+# '-std=c++11',
 '-x',
-'c++',
+# 'c++',
+'c',
 # This path will only work on OS X, but extra paths that don't exist are not harmful
 '-isystem',
 '/usr/include',

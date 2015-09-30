@@ -25,8 +25,9 @@ values."
      ;; ----------------------------------------------------------------
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
-                      auto-completion-enable-sort-by-usage t
-                      auto-completion-enable-help-tooltip t)
+                      auto-completion-enable-sort-by-usage nil
+                      auto-completion-enable-help-tooltip t
+                      auto-completion-private-snippets-directory "~/spacemacs-private/snippets")
      ;; better-defaults
      emacs-lisp
      git
@@ -43,6 +44,9 @@ values."
      c-c++
      cscope
      ycmd
+     ;; (ranger :variables
+     ;;          ranger-show-preview t)
+     games
      my-eshell
      my-c-c++
      my-misc
@@ -215,6 +219,8 @@ user code."
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  ;; set evil-escape key
+  (setq-default evil-escape-key-sequence "fd")
   ;; for eshell
   (spacemacs/setup-helm-cscope 'eshell-mode)
   (spacemacs/setup-helm-cscope 'c-mode)
@@ -250,4 +256,5 @@ layers configuration. You are free to put any user code."
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
- '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "yellow1" :foreground "red")))))
+ '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "yellow1" :foreground "red"))))
+ '(sp-pair-overlay-face ((t nil))))
