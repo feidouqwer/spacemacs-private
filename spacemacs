@@ -105,8 +105,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1"
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -234,6 +234,11 @@ layers configuration. You are free to put any user code."
   (spacemacs/toggle-highlight-current-line-globally-off)
   ;; set tab-wdith to 4
   (setq-default tab-width 4)
+  ;; set fontset for chinese
+  (set-fontset-font
+   (frame-parameter nil 'font)
+   'han
+   (font-spec :family "Microsoft Yahei" :size 12))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
