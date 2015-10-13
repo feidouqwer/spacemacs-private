@@ -16,7 +16,6 @@
     '(
       ;; package names go here
       cc-mode
-      xcscope
       ycmd
       ))
 
@@ -56,21 +55,12 @@
     (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
     (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
     
-    (cscope-minor-mode)
-    
     (ycmd-mode)
     )
 
   (add-hook 'c-mode-hook 'my-common-cc-mode-setup)
   (add-hook 'c++-mode-hook 'my-common-cc-mode-setup)
 )
-
-(defun my-c-c++/init-xcscope ()
-  (use-package xcscope
-    :config
-    (progn
-      (evil-leader/set-key-for-mode 'c-mode "mgp" 'cscope-pop-mark))
-    ))
 
 (defun my-c-c++/init-ycmd ()
   (use-package ycmd

@@ -24,7 +24,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-snippets-in-popup nil
                       auto-completion-enable-sort-by-usage nil
                       auto-completion-enable-help-tooltip t
                       auto-completion-private-snippets-directory "~/spacemacs-private/snippets")
@@ -42,7 +42,7 @@ values."
      syntax-checking
      ;; version-control
      c-c++
-     cscope
+     gtags
      ycmd
      ;; (ranger :variables
      ;;          ranger-show-preview t)
@@ -55,7 +55,8 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/config'.
-   dotspacemacs-additional-packages '(hl-anything)
+   ;; dotspacemacs-additional-packages '(hl-anything)
+   dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(eshell-prompt-extras)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -101,7 +102,7 @@ values."
                          solarized-dark
                          leuven
                          zenburn)
-   ;; If non nil the cursor color matches the state color.
+   ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
@@ -126,7 +127,8 @@ values."
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
    dotspacemacs-command-key ":"
-   ;; dotspacemacs-command-key ";"
+   ;; If non nil `Y' is remapped to `y$'. (default t)
+   dotspacemacs-remap-Y-to-y$ t
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -185,7 +187,7 @@ values."
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible values are `any',
    ;; `current', `all' or `nil'. Default is `all' (highlight any scope and
    ;; emphasis the current one). (default 'all)
@@ -222,9 +224,9 @@ layers configuration. You are free to put any user code."
   ;; set evil-escape key
   (setq-default evil-escape-key-sequence "fd")
   ;; for eshell
-  (spacemacs/setup-helm-cscope 'eshell-mode)
-  (spacemacs/setup-helm-cscope 'c-mode)
-  (spacemacs/setup-helm-cscope 'c++-mode)
+  ;; (spacemacs/setup-helm-cscope 'eshell-mode)
+  ;; (spacemacs/setup-helm-cscope 'c-mode)
+  ;; (spacemacs/setup-helm-cscope 'c++-mode)
   ;; for google in china
   (setq google-translate-base-url
     "http://translate.google.cn/translate_a/single")
@@ -239,6 +241,8 @@ layers configuration. You are free to put any user code."
    (frame-parameter nil 'font)
    'han
    (font-spec :family "Microsoft Yahei" :size 12))
+  ;; set evil's mode
+  (evil-set-initial-state 'eshell-mode 'emacs)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
