@@ -42,8 +42,11 @@ values."
      syntax-checking
      ;; version-control
      c-c++
+     python
+     ipython-notebook
      gtags
      ycmd
+     common-lisp
      ;; (ranger :variables
      ;;          ranger-show-preview t)
      games
