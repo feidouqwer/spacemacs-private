@@ -226,63 +226,20 @@ user code."
 layers configuration. You are free to put any user code."
   ;; set evil-escape key
   (setq-default evil-escape-key-sequence "fd")
-  ;; for eshell
-  ;; (spacemacs/setup-helm-cscope 'eshell-mode)
-  ;; (spacemacs/setup-helm-cscope 'c-mode)
-  ;; (spacemacs/setup-helm-cscope 'c++-mode)
   ;; for google in china
-  (setq google-translate-base-url
-    "http://translate.google.cn/translate_a/single")
-  (setq google-translate-listen-url
-    "http://translate.google.cn/translate_tts")
   ;; disable highlight-current-line-globally
   (spacemacs/toggle-highlight-current-line-globally-off)
-  ;; set tab-wdith to 4
-  (setq-default tab-width 4)
-  ;; set fontset for chinese
-  (set-fontset-font
-   (frame-parameter nil 'font)
-   'han
-   (font-spec :family "Microsoft Yahei" :size 12))
+  ;; set fontset for china
+  ;; (set-fontset-font
+  ;;  (frame-parameter nil 'font)
+  ;;  'han
+  ;;  (font-spec :family "Microsoft Yahei" :size 12))
   ;; set evil's mode
-  (evil-set-initial-state 'eshell-mode 'emacs)
-  (evil-set-initial-state 'shell-mode 'emacs)
-
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;; for my c and c++ configure
-  (defun fix-c-indent-offset-according-to-syntax-context (key val)
-    ;; remove the old element
-    (setq c-offsets-alist (delq (assoc key c-offsets-alist) c-offsets-alist))
-    ;; new value
-    (add-to-list 'c-offsets-alist '(key . val)))
-
-    ;; avoid default "gnu" style, use more popular one
-    (setq c-default-style "linux") 
-
-    (defun my-common-cc-mode-setup ()
-      "setup shared by all languages (java/groovy/c++ ...)"
-      (setq c-basic-offset 4)
-      ;; give me NO newline automatically after electric expressions are entered
-      (setq c-auto-newline nil)
-
-                                        ;make DEL take all previous whitespace with it
-      (c-toggle-hungry-state 1)
-
-      ;; indent
-      (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
-      (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
-
-      ;; comment
-      (setq comment-start "// " comment-end "")
-      
-      (ycmd-mode)
-      )
-    (add-hook 'c-mode-hook 'my-common-cc-mode-setup)
-    (add-hook 'c++-mode-hook 'my-common-cc-mode-setup)
-    (setq tramp-remote-path
-          '(tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin" tramp-own-remote-path))
-    (global-set-key (kbd "<f7>") 'shell)
-    (global-set-key (kbd "<f8>") 'eshell)
+  (add-to-load-path "~/spacemacs-private")
+  (require 'init-cc-mode)
+  (require 'init-misc)
+  (require 'init-tramp)
+  (require 'init-sh)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -298,12 +255,9 @@ layers configuration. You are free to put any user code."
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
  '(magit-ediff-dwim-show-on-hunks t)
- '(password-cache-expiry nIL)
+ '(password-cache-expiry nil)
  '(tramp-default-host "ubuntu")
- '(tramp-default-user "xyz")
- '(tramp-remote-path
-   (quote
-    (tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin" tramp-own-remote-path))))
+ '(tramp-default-user "xyz"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
