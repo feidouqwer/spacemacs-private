@@ -51,8 +51,8 @@ values."
      ;;          ranger-show-preview t)
      games
      my-eshell
-     my-c-c++
-     my-misc
+     ;; my-c-c++
+     ;; my-misc
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -246,6 +246,43 @@ layers configuration. You are free to put any user code."
    (font-spec :family "Microsoft Yahei" :size 12))
   ;; set evil's mode
   (evil-set-initial-state 'eshell-mode 'emacs)
+  (evil-set-initial-state 'shell-mode 'emacs)
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; for my c and c++ configure
+  (defun fix-c-indent-offset-according-to-syntax-context (key val)
+    ;; remove the old element
+    (setq c-offsets-alist (delq (assoc key c-offsets-alist) c-offsets-alist))
+    ;; new value
+    (add-to-list 'c-offsets-alist '(key . val)))
+
+    ;; avoid default "gnu" style, use more popular one
+    (setq c-default-style "linux") 
+
+    (defun my-common-cc-mode-setup ()
+      "setup shared by all languages (java/groovy/c++ ...)"
+      (setq c-basic-offset 4)
+      ;; give me NO newline automatically after electric expressions are entered
+      (setq c-auto-newline nil)
+
+                                        ;make DEL take all previous whitespace with it
+      (c-toggle-hungry-state 1)
+
+      ;; indent
+      (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
+      (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
+
+      ;; comment
+      (setq comment-start "// " comment-end "")
+      
+      (ycmd-mode)
+      )
+    (add-hook 'c-mode-hook 'my-common-cc-mode-setup)
+    (add-hook 'c++-mode-hook 'my-common-cc-mode-setup)
+    (setq tramp-remote-path
+          '(tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin" tramp-own-remote-path))
+    (global-set-key (kbd "<f7>") 'shell)
+    (global-set-key (kbd "<f8>") 'eshell)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -260,12 +297,19 @@ layers configuration. You are free to put any user code."
     ("50ce37723ff2abc0b0b05741864ae9bd22c17cdb469cae134973ad46c7e48044" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "cdf8ed5e00ed16645e430dc05dab584675b6f534db04e5b8de98d435a35ddcdc" default)))
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
- '(magit-ediff-dwim-show-on-hunks t))
+ '(magit-ediff-dwim-show-on-hunks t)
+ '(password-cache-expiry nIL)
+ '(tramp-default-host "ubuntu")
+ '(tramp-default-user "xyz")
+ '(tramp-remote-path
+   (quote
+    (tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin" tramp-own-remote-path))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:background "#1B1D1E" :foreground "#F8F8F2"))))
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
  '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
  '(evil-search-highlight-persist-highlight-face ((t (:inherit region :background "yellow1" :foreground "red"))))
