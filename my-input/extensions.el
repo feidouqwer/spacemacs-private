@@ -1,4 +1,4 @@
-;;; extensions.el --- my-c-c++ Layer extensions File for Spacemacs
+;;; extensions.el --- my-input Layer extensions File for Spacemacs
 ;;
 ;; Copyright (c) 2012-2014 Sylvain Benner
 ;; Copyright (c) 2014-2015 Sylvain Benner & Contributors
@@ -10,19 +10,19 @@
 ;;
 ;;; License: GPLv3
 
-(setq my-c-c++-pre-extensions
+(setq my-input-pre-extensions
       '(
         ;; pre extension names go here
         ))
 
-(setq my-c-c++-post-extensions
+(setq my-input-post-extensions
       '(
         ;; post extension names go here
         ))
 
-;; For each extension, define a function my-c-c++/init-<extension-name>
+;; For each extension, define a function my-input/init-<extension-name>
 ;;
-;; (defun my-c-c++/init-my-extension ()
+;; (defun my-input/init-my-extension ()
 ;;   "Initialize my extension"
 ;;   )
 ;;

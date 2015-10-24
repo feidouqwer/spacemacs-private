@@ -45,14 +45,13 @@ values."
      python
      ipython-notebook
      gtags
-     ycmd
+     ;; ycmd
      common-lisp
-     ;; (ranger :variables
-     ;;          ranger-show-preview t)
+     (ranger :variables
+              ranger-show-preview t)
      games
-     ;; my-eshell
-     ;; my-c-c++
-     ;; my-misc
+     my-input
+     my-misc
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -61,11 +60,11 @@ values."
    ;; dotspacemacs-additional-packages '(hl-anything)
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(eshell-prompt-extras)
+   dotspacemacs-excluded-packages '(eshell-prompt-extras auto-compile)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
-   dotspacemacs-delete-orphan-packages t))
+   dotspacemacs-delete-orphan-packages nil))
 
 (defun dotspacemacs/init ()
   "Initialization function.
@@ -229,6 +228,9 @@ layers configuration. You are free to put any user code."
   ;; for google in china
   ;; disable highlight-current-line-globally
   (spacemacs/toggle-highlight-current-line-globally-off)
+  ;; (global-auto-complete-mode 1)
+  (global-company-mode 1)
+  (spacemacs/toggle-maximize-frame)
   ;; set fontset for china
   ;; (set-fontset-font
   ;;  (frame-parameter nil 'font)
@@ -250,9 +252,12 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-show-numbers t)
+ '(compilation-scroll-output t)
  '(custom-safe-themes
    (quote
     ("50ce37723ff2abc0b0b05741864ae9bd22c17cdb469cae134973ad46c7e48044" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "cdf8ed5e00ed16645e430dc05dab584675b6f534db04e5b8de98d435a35ddcdc" default)))
+ '(default-input-method "chinese-wbim")
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
  '(magit-ediff-dwim-show-on-hunks t)
