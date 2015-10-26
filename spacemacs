@@ -57,6 +57,7 @@ values."
              colors-enable-rainbow-identifiers nil
              ;; colors-enable-nyan-cat-progress-bar t
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     gnus
      my-misc
      )
    ;; List of additional packages that will be installed without being
@@ -247,6 +248,7 @@ layers configuration. You are free to put any user code."
   (require 'init-helm)
   (require 'init-tramp)
   (require 'init-sh)
+  (require 'init-gnus)
   (require 'init-misc)
   )
 
