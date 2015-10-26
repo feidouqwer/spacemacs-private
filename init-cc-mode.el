@@ -8,12 +8,11 @@
 ;; avoid default "gnu" style, use more popular one
 (setq c-default-style "linux") 
 
-;; (if (configuration-layer/package-usedp 'company-ycmd)
-;;     (progn
-;;       (message "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$4 remove company-ycmd")
-;;       ;; (setq company-backends-c-mode-common
-;;       ;;       (remove 'company-ycmd company-backends-c-mode-common))
-;;       (add-to-list company-backends-c-mode-common company-ycmd t)))
+(if (configuration-layer/package-usedp 'company-ycmd)
+    (progn
+      (setq company-backends-c-mode-common
+            (remove 'company-ycmd company-backends-c-mode-common))
+      (add-to-list 'company-backends-c-mode-common 'company-ycmd t)))
 
 (defun my-common-cc-mode-setup ()
   "setup shared by all languages (java/groovy/c++ ...)"
@@ -33,6 +32,8 @@
   
   (if (configuration-layer/layer-usedp 'ycmd)
         (ycmd-mode 1))
+
+  ;; (linum-mode)
   )
 
 (add-hook 'c-mode-hook 'my-common-cc-mode-setup)

@@ -45,7 +45,7 @@ values."
      python
      ipython-notebook
      gtags
-     ;; ycmd
+     ycmd
      common-lisp
      (ranger :variables
               ranger-show-preview t)
@@ -60,7 +60,7 @@ values."
    ;; dotspacemacs-additional-packages '(hl-anything)
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(eshell-prompt-extras auto-compile)
+   dotspacemacs-excluded-packages '(eshell-prompt-extras auto-complete)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
