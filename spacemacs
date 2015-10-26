@@ -50,8 +50,13 @@ values."
      (ranger :variables
               ranger-show-preview t)
      games
-     (chinese :variables chinese-default-input-method 'wubi
+     (chinese :variables
+              chinese-default-input-method 'wubi
               chinese-enable-youdao-dict t)
+     (colors :variables
+             colors-enable-rainbow-identifiers nil
+             ;; colors-enable-nyan-cat-progress-bar t
+             colors-enable-nyan-cat-progress-bar (display-graphic-p))
      my-misc
      )
    ;; List of additional packages that will be installed without being
