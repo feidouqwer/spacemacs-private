@@ -1,2 +1,0 @@
-* packages file
-[[file:packages.el][packages file]]

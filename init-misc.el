@@ -7,4 +7,7 @@
 (setq google-translate-listen-url
       "http://translate.google.cn/translate_tts")
 
+(evil-leader/set-key "xgy" 'youdao-dictionary-search-at-point+)
+(evil-leader/set-key "xgY" 'youdao-dictionary-search-at-point)
+
 (provide 'init-misc)
