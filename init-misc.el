@@ -20,4 +20,15 @@
     (progn (evil-leader/set-key "xgy" 'youdao-dictionary-search-at-point+)
            (evil-leader/set-key "xgY" 'youdao-dictionary-search-at-point)))
 
+(defun switch-to-compilation-other-window (prefix)
+  (interactive "P")
+  (let ((buffer (get-buffer "*compilation*")))
+    (when buffer
+      (if (not prefix)
+          (switch-to-buffer-other-window buffer)
+        (switch-to-buffer buffer)))))
+(evil-leader/set-key "cw" 'switch-to-compilation-other-window)
+
+(global-set-key (kbd "M-SPC") 'set-mark-command)
+
 (provide 'init-misc)
