@@ -54,7 +54,7 @@ values."
               chinese-default-input-method 'wubi
               chinese-enable-youdao-dict t)
      (colors :variables
-             colors-enable-rainbow-identifiers nil
+             colors-enable-rainbow-identifiers t
              ;; colors-enable-nyan-cat-progress-bar t
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      gnus
@@ -124,7 +124,7 @@ values."
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
    ;; (default "M-m")
-   dotspacemacs-emacs-leader-key "M-m"
+   dotspacemacs-emacs-leader-key "M-SPC"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
    dotspacemacs-major-mode-leader-key ","

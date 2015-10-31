@@ -20,15 +20,25 @@
     (progn (evil-leader/set-key "xgy" 'youdao-dictionary-search-at-point+)
            (evil-leader/set-key "xgY" 'youdao-dictionary-search-at-point)))
 
-(defun switch-to-compilation-other-window (prefix)
+(defun qwer/switch-to-compilation-other-window (prefix)
   (interactive "P")
   (let ((buffer (get-buffer "*compilation*")))
     (when buffer
       (if (not prefix)
           (switch-to-buffer-other-window buffer)
         (switch-to-buffer buffer)))))
-(evil-leader/set-key "cw" 'switch-to-compilation-other-window)
+(evil-leader/set-key "cw" 'qwer/switch-to-compilation-other-window)
+(global-set-key (kbd "<f6>") 'qwer/switch-to-compilation-other-window)
 
-(global-set-key (kbd "M-SPC") 'set-mark-command)
+(defun qwer/switch-to-serial-term-other-window (prefix)
+  (interactive "P")
+  (let ((buffer (get-buffer "/dev/ttyS0")))
+    (when buffer
+      (if (not prefix)
+          (switch-to-buffer-other-window buffer)
+        (switch-to-buffer buffer)))))
+(global-set-key (kbd "<f9>") 'qwer/switch-to-serial-term-other-window)
+
+(global-set-key (kbd "M-m") 'set-mark-command)
 
 (provide 'init-misc)
