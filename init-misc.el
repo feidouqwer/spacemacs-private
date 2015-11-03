@@ -33,12 +33,17 @@
 (defun qwer/switch-to-serial-term-other-window (prefix)
   (interactive "P")
   (let ((buffer (get-buffer "/dev/ttyS0")))
-    (when buffer
-      (if (not prefix)
+    (if buffer
+        (progn
+          (if (not prefix)
           (switch-to-buffer-other-window buffer)
-        (switch-to-buffer buffer)))))
-(global-set-key (kbd "<f9>") 'qwer/switch-to-serial-term-other-window)
+          (switch-to-buffer buffer)))
+      (serial-term "/dev/ttyS0" 115200))))
+(evil-leader/set-key "wt" 'qwer/switch-to-serial-term-other-window)
 
 (global-set-key (kbd "M-m") 'set-mark-command)
+
+(evil-define-key 'normal grep-mode-map "h" 'evil-backward-char)
+(evil-define-key 'motion grep-mode-map "h" 'evil-backward-char)
 
 (provide 'init-misc)
