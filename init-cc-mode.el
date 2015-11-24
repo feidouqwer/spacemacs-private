@@ -31,7 +31,8 @@
   (setq comment-start "// " comment-end "")
   
   (if (configuration-layer/layer-usedp 'ycmd)
-        (ycmd-mode 1))
+      (progn (ycmd-mode 1)
+             (define-key c-mode-map (kbd "<C-return>") 'company-ycmd)))
 
   ;; (linum-mode)
   )

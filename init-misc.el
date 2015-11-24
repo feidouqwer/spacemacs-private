@@ -6,6 +6,7 @@
       "http://translate.google.cn/translate_a/single")
 (setq google-translate-listen-url
       "http://translate.google.cn/translate_tts")
+(setq compilation-scroll-output t)
 
 (defun qwer/find-user-bashrc-file ()
   "Edit the ~/.bashrc, in the current window."

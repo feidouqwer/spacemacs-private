@@ -8,4 +8,8 @@
                 (nnimap-stream ssl))
         ))
 
+;; store email in ~/mail directory
+(setq nnml-directory "~/mail")
+(setq message-directory "~/mail")
+
 (provide 'init-gnus)
