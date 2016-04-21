@@ -24,7 +24,7 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup nil
+                      auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage nil
                       auto-completion-enable-help-tooltip t
                       auto-completion-private-snippets-directory "~/spacemacs-private/snippets")
@@ -40,6 +40,7 @@ values."
      shell-scripts
      spell-checking
      syntax-checking
+     semantic
      ;; version-control
      c-c++
      python
@@ -67,7 +68,7 @@ values."
    ;; dotspacemacs-additional-packages '(hl-anything)
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(eshell-prompt-extras auto-complete)
+   dotspacemacs-excluded-packages '(eshell-prompt-extras esh-help auto-complete)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -273,6 +274,13 @@ layers configuration. You are free to put any user code."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(c-default-style
+   (quote
+    ((c-mode . "linux")
+     (c++-mode . "linux")
+     (java-mode . "java")
+     (awk-mode . "awk")
+     (other . "gnu"))))
  '(company-show-numbers t)
  '(compilation-scroll-output t)
  '(custom-safe-themes
@@ -281,7 +289,16 @@ layers configuration. You are free to put any user code."
  '(default-input-method "chinese-wbim")
  '(google-translate-default-source-language "en")
  '(google-translate-default-target-language "zh-CN")
+ '(grep-find-ignored-directories
+   (quote
+    ("SCCS" "RCS" "CVS" "MCVS" ".src" ".svn" ".git" ".hg" ".bzr" "_MTN" "_darcs" "{arch}" ".deps")))
+ '(grep-find-ignored-files
+   (quote
+    (".#*" "*.o" "*~" "*.bin" "*.lbin" "*.so" "*.a" "*.ln" "*.blg" "*.bbl" "*.elc" "*.lof" "*.glo" "*.idx" "*.lot" "*.fmt" "*.tfm" "*.class" "*.fas" "*.lib" "*.mem" "*.x86f" "*.sparcf" "*.dfsl" "*.pfsl" "*.d64fsl" "*.p64fsl" "*.lx64fsl" "*.lx32fsl" "*.dx64fsl" "*.dx32fsl" "*.fx64fsl" "*.fx32fsl" "*.sx64fsl" "*.sx32fsl" "*.wx64fsl" "*.wx32fsl" "*.fasl" "*.ufsl" "*.fsl" "*.dxl" "*.lo" "*.la" "*.gmo" "*.mo" "*.toc" "*.aux" "*.cp" "*.fn" "*.ky" "*.pg" "*.tp" "*.vr" "*.cps" "*.fns" "*.kys" "*.pgs" "*.tps" "*.vrs" "*.pyc" "*.pyo" "*.sem3" "*.xem3" "*.map" "GRTAGS" "GTAGS" "GPATH" "*.oem3" "*.aem3" "lto_ipnc_rdk_m3vpss_release.asm")))
  '(magit-ediff-dwim-show-on-hunks t)
+ '(package-selected-packages
+   (quote
+    (hydra magit-popup with-editor request websocket deferred packed pythonic anzu yasnippet async f stickyfunc-enhance srefactor typit mmt evil-ediff company-shell xterm-color uuidgen py-yapf live-py-mode link-hint eyebrowse evil-visual-mark-mode eshell-z common-lisp-snippets column-enforce-mode bracketed-paste auto-complete avy highlight ycmd projectile helm-core diminish names popup bind-map orgit hl-todo ws-butler spaceline restart-emacs persp-mode pacmacs lorem-ipsum help-fns+ helm-flx helm-company evil-mc evil-magit evil-lisp-state evil-indent-plus auto-compile ace-jump-helm-line evil-indent-textobject youdao-dictionary window-numbering volatile-highlights vi-tilde-fringe toc-org spray spacemacs-theme smooth-scrolling smeargle smartparens slime shell-pop ranger rainbow-mode rainbow-identifiers rainbow-delimiters pyvenv pytest pyenv-mode powerline popwin pip-requirements pcre2el paradox pangu-spacing page-break-lines org-repo-todo org-present org-pomodoro org-plus-contrib org-bullets open-junk-file neotree multi-term move-text magit-gitflow magit macrostep linum-relative leuven-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete htmlize highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flyspell helm-descbinds helm-c-yasnippet helm-ag helm google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-commit ggtags flycheck-ycmd flycheck-pos-tip flycheck flx-ido fish-mode find-by-pinyin-dired fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-org evil-numbers evil-nerd-commenter evil-matchit evil-jumper evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu esh-help elisp-slime-nav ein disaster define-word cython-mode company-ycmd company-statistics company-quickhelp company-c-headers company-anaconda company cmake-mode clean-aindent-mode clang-format chinese-wbim buffer-move auto-yasnippet auto-highlight-symbol auto-dictionary ascii anaconda-mode aggressive-indent adaptive-wrap ace-window ace-pinyin ace-link ac-ispell 2048-game evil-leader evil which-key quelpa package-build use-package bind-key s dash molokai-theme)))
  '(password-cache-expiry nil)
  '(tramp-default-host "ubuntu")
  '(tramp-default-user "xyz"))

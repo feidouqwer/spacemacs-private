@@ -14,7 +14,8 @@
 (if (configuration-layer/package-usedp 'eshell)
     (progn
       (evil-set-initial-state 'eshell-mode 'emacs)
-      (global-set-key (kbd "<f8>") 'eshell)))
+      (global-set-key (kbd "<f8>") 'eshell)
+      (spacemacs/set-leader-keys "ass" 'eshell)))
 
 ;; (setq eshell-command-aliases-list
 ;;       (append eshell-command-aliases-list

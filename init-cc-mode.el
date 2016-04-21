@@ -6,7 +6,7 @@
   (add-to-list 'c-offsets-alist '(key . val)))
 
 ;; avoid default "gnu" style, use more popular one
-(setq c-default-style "linux") 
+;; (setq c-default-style "linux")
 
 (if (configuration-layer/package-usedp 'company-ycmd)
     (progn
@@ -24,8 +24,8 @@
   (c-toggle-hungry-state 1)
 
   ;; indent
-  (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
-  (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
+  ;; (fix-c-indent-offset-according-to-syntax-context 'substatement 0)
+  ;; (fix-c-indent-offset-according-to-syntax-context 'func-decl-cont 0)
 
   ;; comment
   (setq comment-start "// " comment-end "")
