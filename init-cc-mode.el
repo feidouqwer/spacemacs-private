@@ -21,7 +21,7 @@
   (setq c-auto-newline nil)
 
                                         ;make DEL take all previous whitespace with it
-  (c-toggle-hungry-state 1)
+  ;; (c-toggle-hungry-state 1)
 
   ;; indent
   ;; (fix-c-indent-offset-according-to-syntax-context 'substatement 0)

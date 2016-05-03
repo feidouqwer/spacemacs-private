@@ -1,0 +1,9 @@
+#name : szvt
+#contributor : xieq@szvideotech.com
+# --
+#+TITLE: ${1:title}
+#+AUTHOR: 深圳市唯太视频科技有限公司
+#+EMAIL: ${2:`user-mail-address`}
+#+OPTIONS: email:t ^:nil _:nil
+
+$0

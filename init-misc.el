@@ -40,8 +40,8 @@
     (if buffer
         (progn
           (if (not prefix)
-          (switch-to-buffer-other-window buffer)
-          (switch-to-buffer buffer)))
+              (switch-to-buffer-other-window buffer)
+            (switch-to-buffer buffer)))
       (serial-term "/dev/ttyS0" 115200))))
 (evil-leader/set-key "wt" 'qwer/switch-to-serial-term-other-window)
 
