@@ -64,6 +64,7 @@ values."
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      ;; gnus
      ;; pandoc
+     imenu-list
      my-misc
      )
    ;; List of additional packages that will be installed without being

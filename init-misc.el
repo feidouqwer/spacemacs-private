@@ -45,9 +45,20 @@
       (serial-term "/dev/ttyS0" 115200))))
 (evil-leader/set-key "wt" 'qwer/switch-to-serial-term-other-window)
 
+(defun qwer/switch-to-grep-other-window (prefix)
+  (interactive "P")
+  (let ((buffer (get-buffer "*grep*")))
+    (when buffer
+      (if (not prefix)
+          (switch-to-buffer-other-window buffer)
+        (switch-to-buffer buffer)))))
+(evil-leader/set-key "cg" 'qwer/switch-to-compilation-grep-window)
+
 (global-set-key (kbd "M-m") 'set-mark-command)
+(global-set-key (kbd "C-M-SPC") 'toggle-input-method)
 
 (evil-define-key 'normal grep-mode-map "h" 'evil-backward-char)
 (evil-define-key 'motion grep-mode-map "h" 'evil-backward-char)
+(evil-define-key 'motion Man-mode-map "o" 'Man-next-section)
 
 (provide 'init-misc)
