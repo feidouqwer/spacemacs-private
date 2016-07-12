@@ -52,9 +52,11 @@
       (if (not prefix)
           (switch-to-buffer-other-window buffer)
         (switch-to-buffer buffer)))))
-(evil-leader/set-key "cg" 'qwer/switch-to-grep-other-window)
+(evil-leader/set-key "wg" 'qwer/switch-to-grep-other-window)
 
 (global-set-key (kbd "M-m") 'set-mark-command)
+(global-set-key (kbd "M-n") 'next-line)
+(global-set-key (kbd "M-p") 'previous-line)
 (global-set-key (kbd "C-M-SPC") 'toggle-input-method)
 
 (evil-define-key 'normal grep-mode-map "h" 'evil-backward-char)

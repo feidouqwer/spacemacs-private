@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: tag
+# key: tag
+# --
+typedef struct Tag_st$1
+{
+    $0
+}Tag_st$1;
+
+typedef struct Tag_st$1Ret
+{
+    $0
+}Tag_st$1Ret;

@@ -4,7 +4,7 @@
     (setq org-agenda-files (quote ("~/org-notes" )))
     (setq org-default-notes-file "~/org-notes/gtd.org")
     (setq org-todo-keywords
-          '((sequence "TODO(t!)" "NEXT(n)" "WAITTING(w)" "SOMEDAY(s)" "|" "DONE(d@/!)" "ABORT(a@/!)")
+          '((sequence "TODO(t!)" "DOING(o)" "NEXT(n)" "WAITTING(w)" "SOMEDAY(s)" "|" "DONE(d@/!)" "ABORT(a@/!)")
             ))
     (setq-default org-use-sub-superscripts nil)
     (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
@@ -39,6 +39,15 @@
              :empty-lines 1)
             ("c" "HDMICapture" entry (file+headline "~/org-notes/gtd.org" "HDMICapture")
              "* TODO [#A] %?\n  %i\n %U"
+             :empty-lines 1)
+            ("C" "CarCheck" entry (file+headline "~/org-notes/gtd.org" "CarCheck")
+             "* TODO [#A] %?\n  %i\n %U"
+             :empty-lines 1)
+            ("v" "VideoTech" entry (file+headline "~/org-notes/gtd.org" "VideoTech")
+             "* TODO [#B] %?\n  %i\n %U"
+             :empty-lines 1)
+            ("p" "Private" entry (file+headline "~/org-notes/private.org" "Private")
+             "* TODO [#C] %?\n  %i\n %U"
              :empty-lines 1)
             ("l" "links" entry (file+headline "~/org-notes/notes.org" "Quick notes")
              "* TODO [#C] %?\n  %i\n %a \n %U"
