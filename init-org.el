@@ -43,10 +43,13 @@
             ("C" "CarCheck" entry (file+headline "~/org-notes/gtd.org" "CarCheck")
              "* TODO [#A] %?\n  %i\n %U"
              :empty-lines 1)
+            ("p" "PowerVision" entry (file+headline "~/org-notes/gtd.org" "PowerVision")
+             "* TODO [#A] %?\n  %i\n %U"
+             :empty-lines 1)
             ("v" "VideoTech" entry (file+headline "~/org-notes/gtd.org" "VideoTech")
              "* TODO [#B] %?\n  %i\n %U"
              :empty-lines 1)
-            ("p" "Private" entry (file+headline "~/org-notes/private.org" "Private")
+            ("P" "Private" entry (file+headline "~/org-notes/private.org" "Private")
              "* TODO [#C] %?\n  %i\n %U"
              :empty-lines 1)
             ("l" "links" entry (file+headline "~/org-notes/notes.org" "Quick notes")

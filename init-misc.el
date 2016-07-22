@@ -54,6 +54,17 @@
         (switch-to-buffer buffer)))))
 (evil-leader/set-key "wg" 'qwer/switch-to-grep-other-window)
 
+(defun qwer/open-window-explorer-by-telnet ()
+  (interactive)
+  (unless (get-buffer "*telnet-host*")
+    (telnet "host"))
+  (let ((buffer (get-buffer "*telnet-host*"))
+        (cmd (format "cygstart //ubuntu%s" default-directory)))
+    (with-current-buffer buffer
+      (insert cmd)
+      (telnet-send-input))))
+(evil-leader/set-key "ow" 'qwer/open-window-explorer-by-telnet)
+
 (global-set-key (kbd "M-m") 'set-mark-command)
 (global-set-key (kbd "M-n") 'next-line)
 (global-set-key (kbd "M-p") 'previous-line)
