@@ -4,7 +4,7 @@
     (setq org-agenda-files (quote ("~/org-notes" )))
     (setq org-default-notes-file "~/org-notes/gtd.org")
     (setq org-todo-keywords
-          '((sequence "TODO(t!)" "DOING(o)" "NEXT(n)" "WAITTING(w)" "SOMEDAY(s)" "|" "DONE(d@/!)" "ABORT(a@/!)")
+          '((sequence "TODO(t!)" "DOING(o)" "NEXT(n)" "WAITTING(w)" "SOMEDAY(s)" "TEST(T)" "|" "DONE(d@/!)" "ABORT(a@/!)")
             ))
     (setq-default org-use-sub-superscripts nil)
     (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"

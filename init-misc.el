@@ -17,8 +17,8 @@
   (find-file-existing "~/.bashrc"))
 (evil-leader/set-key "feb" 'qwer/find-user-bashrc-file)
 
-(global-set-key (kbd "<f5>") 'compile)
-(global-set-key (kbd "<f4>") 'shell-command)
+;; (global-set-key (kbd "<f5>") 'compile)
+;; (global-set-key (kbd "<f4>") 'shell-command)
 
 (if (configuration-layer/package-usedp 'youdao-dictionary)
     (progn (evil-leader/set-key "xgy" 'youdao-dictionary-search-at-point+)
@@ -54,16 +54,22 @@
         (switch-to-buffer buffer)))))
 (evil-leader/set-key "wg" 'qwer/switch-to-grep-other-window)
 
-(defun qwer/open-window-explorer-by-telnet ()
-  (interactive)
-  (unless (get-buffer "*telnet-host*")
-    (telnet "host"))
-  (let ((buffer (get-buffer "*telnet-host*"))
-        (cmd (format "cygstart //ubuntu%s" default-directory)))
-    (with-current-buffer buffer
-      (insert cmd)
-      (telnet-send-input))))
-(evil-leader/set-key "ow" 'qwer/open-window-explorer-by-telnet)
+(when (eq system-type 'gnu/linux)
+    (defun qwer/open-window-explorer-by-telnet ()
+      (interactive)
+      (when (get-buffer "*telnet-host*")
+        (kill-buffer "*telnet-host*"))
+      (let ((buffer (current-buffer)))
+        (telnet "host")
+        (switch-to-buffer buffer))
+      (let ((buffer (get-buffer "*telnet-host*"))
+            (cmd (format "cygstart //ubuntu%s" default-directory)))
+        (with-current-buffer buffer
+          (insert cmd)
+          (telnet-send-input))))
+  (evil-leader/set-key "ow" 'qwer/open-window-explorer-by-telnet))
+
+(evil-leader/set-key "oc" 'calculator)
 
 (global-set-key (kbd "M-m") 'set-mark-command)
 (global-set-key (kbd "M-n") 'next-line)

@@ -158,12 +158,12 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font (if (eq window-system 'w32)
-                                 '("-outline-Consolas-normal-normal-normal-mono-16-*-*-*-c-*-iso8859-1"
-                                   :size 16
+                                 '("Consolas"
+                                   :size 18
                                    :weight normal
                                    :width normal
                                    :powerline-scale 1.1)
-                               ;; '("-unknown-Ubuntu Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1"
+                               ;; '("Ubuntu Mono"
                                ;;   :size 18
                                ;;   :weight normal
                                ;;   :width normal
@@ -173,11 +173,6 @@ values."
                                  :weight normal
                                  :width normal
                                  :powerline-scale 1.1)
-                               ;; '("consolas"
-                               ;;  :size 21
-                               ;;  :weight normal
-                               ;;  :width normal
-                               ;;  :powerline-scale 1.1)
                                )
    ;; The leader key
    dotspacemacs-leader-key "SPC"
@@ -201,7 +196,7 @@ values."
    ;; works in the GUI. (default nil)
    dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
-   dotspacemacs-remap-Y-to-y$ nil
+   dotspacemacs-remap-Y-to-y$ t
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
    ;; there. (default t)
    dotspacemacs-retain-visual-state-on-shift t

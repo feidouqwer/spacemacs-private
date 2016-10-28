@@ -9,13 +9,20 @@
 (if (configuration-layer/package-usedp 'shell)
     (progn
       (evil-set-initial-state 'shell-mode 'emacs)
-      (global-set-key (kbd "<f7>") 'shell)))
+      (global-set-key (kbd "<f7>") 'shell)
+      (spacemacs/set-leader-keys "ot" 'spacemacs/shell-pop-ansi-term)))
 
 (if (configuration-layer/package-usedp 'eshell)
     (progn
       (evil-set-initial-state 'eshell-mode 'emacs)
       (global-set-key (kbd "<f8>") 'eshell)
-      (spacemacs/set-leader-keys "ass" 'eshell)))
+      (spacemacs/set-leader-keys "ass" 'eshell)
+      (spacemacs/set-leader-keys "oe" 'eshell)))
+
+(if (configuration-layer/package-usedp 'multi-term)
+    (progn
+      (evil-set-initial-state 'term-mode 'emacs)
+      (spacemacs/set-leader-keys "om" 'spacemacs/shell-pop-multiterm)))
 
 ;; (setq eshell-command-aliases-list
 ;;       (append eshell-command-aliases-list
