@@ -55,19 +55,20 @@
 (evil-leader/set-key "wg" 'qwer/switch-to-grep-other-window)
 
 (when (eq system-type 'gnu/linux)
-    (defun qwer/open-window-explorer-by-telnet ()
-      (interactive)
-      (when (get-buffer "*telnet-host*")
-        (kill-buffer "*telnet-host*"))
-      (let ((buffer (current-buffer)))
-        (telnet "host")
-        (switch-to-buffer buffer))
-      (let ((buffer (get-buffer "*telnet-host*"))
-            (cmd (format "cygstart //ubuntu%s" default-directory)))
-        (with-current-buffer buffer
-          (insert cmd)
-          (telnet-send-input))))
-  (evil-leader/set-key "ow" 'qwer/open-window-explorer-by-telnet))
+  (defun qwer/open-window-explorer-by-udp ()
+    (interactive)
+    (let ((sock (make-network-process
+                 :name "cygstart"
+                 :family 'ipv4
+                 :type 'datagram
+                 :host "host"
+                 :service 24256))
+          (path (if current-prefix-arg
+                    (read-directory-name "Window NFS Path: ")
+                  default-directory)))
+      (process-send-string sock (format "cygstart //ubuntu%s" path))
+      (delete-process sock)))
+  (evil-leader/set-key "ow" 'qwer/open-window-explorer-by-udp))
 
 (evil-leader/set-key "oc" 'calculator)
 

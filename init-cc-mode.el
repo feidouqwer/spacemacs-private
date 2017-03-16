@@ -32,7 +32,8 @@
   
   (if (configuration-layer/layer-usedp 'ycmd)
       (progn (ycmd-mode 1)
-             (define-key c-mode-map (kbd "<C-return>") 'company-ycmd)))
+             (define-key c-mode-map (kbd "<C-return>") 'company-ycmd)
+             (define-key c++-mode-map (kbd "<C-return>") 'company-ycmd)))
 
   ;; (linum-mode)
   )
