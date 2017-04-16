@@ -70,6 +70,11 @@
       (delete-process sock)))
   (evil-leader/set-key "ow" 'qwer/open-window-explorer-by-udp))
 
+(when (eq system-type 'cygwin)
+  (defun qwer/open-window-explorer-by-cygstart ()
+    (interactive)
+    (shell-command "cygstart /cygdrive/d")))
+
 (evil-leader/set-key "oc" 'calculator)
 
 (global-set-key (kbd "M-m") 'set-mark-command)
